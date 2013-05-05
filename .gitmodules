@@ -7,3 +7,6 @@
 [submodule "modules/firewall"]
 	path = modules/firewall
 	url = git://github.com/coralnexus/puppetlabs-firewall.git
+[submodule "modules/vcsrepo"]
+	path = modules/vcsrepo
+	url = git://github.com/coralnexus/puppetlabs-vcsrepo.git
