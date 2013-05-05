@@ -4,3 +4,6 @@
 [submodule "modules/stdlib"]
 	path = modules/stdlib
 	url = git://github.com/coralnexus/puppetlabs-stdlib.git
+[submodule "modules/firewall"]
+	path = modules/firewall
+	url = git://github.com/coralnexus/puppetlabs-firewall.git
