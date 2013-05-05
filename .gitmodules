@@ -10,3 +10,6 @@
 [submodule "modules/vcsrepo"]
 	path = modules/vcsrepo
 	url = git://github.com/coralnexus/puppetlabs-vcsrepo.git
+[submodule "modules/coral"]
+	path = modules/coral
+	url = git://github.com/coralnexus/puppet-coral.git
