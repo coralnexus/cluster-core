@@ -13,3 +13,6 @@
 [submodule "modules/coral"]
 	path = modules/coral
 	url = git://github.com/coralnexus/puppet-coral.git
+[submodule "modules/git"]
+	path = modules/git
+	url = git://github.com/coralnexus/puppet-git.git
