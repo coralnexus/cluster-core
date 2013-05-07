@@ -8,9 +8,13 @@ class global::default {
   include coral::params
   include git::params
 
+  #---
+
   include global::default::coral
   include global::default::users
   include global::default::git
+
+  #---
 
   # Vagrant user MUST be "vagrant" right now due to the vagrant_exists fact checking for user name.
   $vagrant_user = 'vagrant'
