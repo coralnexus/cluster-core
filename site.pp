@@ -42,7 +42,13 @@ node default {
 
   import "profiles/*.pp"
 
-  if ! ( config_initialized and exists(global_param('config::common')) ) {
+  if config_initialized and file_exists(global_param('config::common')) {
+    include base
+    Class['coral'] -> Class['base']
+
+    coral_include('profiles')
+  }
+  else {
     $config_address = global_param('config::address')
 
     notice "Bootstrapping server"
@@ -50,11 +56,5 @@ node default {
 
     include bootstrap
     Class['coral'] -> Class['bootstrap']
-  }
-  else {
-    include base
-    Class['coral'] -> Class['base']
-
-    coral_include('profiles')
   }
 }
