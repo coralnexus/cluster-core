@@ -5,24 +5,39 @@
  * in this manifest directory.
  */
 class global::default {
-  $git_init_password = '' # No password (initially unless overriden in sub repo)
+  include coral::params
+  include git::params
 
-  $git_home          = '/var/git'
+  include global::default::coral
+  include global::default::users
+  include global::default::git
 
-  $config_repo       = 'config.git'
-  $config_repo_dir   = "${git_home}/${config_repo}"
+  # Vagrant user MUST be "vagrant" right now due to the vagrant_exists fact checking for user name.
+  $vagrant_user = 'vagrant'
 
-  $config_address    = "git@${::fqdn}:${config_repo}"
-  $config_common     = "${config_repo_dir}/common.json"
+  #---
 
-  $puppet_source     = 'git://github.com/coralnexus/puppet-cluster.git'
-  $puppet_branch     = 'master'
+  $git_user     = $git::params::user
+  $git_password = $git::params::password
+  $git_home_dir = $git::params::home_dir
 
-  $puppet_repo     = 'puppet.git'
-  $puppet_repo_dir = "${git_home}/${puppet_repo}"
+  #---
+
+  $config_repo          = 'config.git'
+  $config_repo_dir      = "${git_home_dir}/${config_repo}"
+
+  $config_address       = "${git_user}@${::fqdn}:${config_repo}"
+  $config_common        = "${config_repo_dir}/common.json"
+
+  #---
+
+  $puppet_source        = 'git://github.com/coralnexus/puppet-cluster.git'
+  $puppet_revision      = 'master'
+
+  $puppet_repo          = 'puppet.git'
+  $puppet_repo_dir      = "${git_home_dir}/${puppet_repo}"
+
+  $post_update_commands = [ $coral::params::puppet::update_command ]
 }
 
-# For the record, I hate doing this :-(
-import "default/*.pp"
-include global::default::coral
-#include global::default::git
+

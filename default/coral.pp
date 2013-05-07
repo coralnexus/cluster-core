@@ -1,5 +1,6 @@
 
 class global::default::coral inherits global::default {
+  include coral::params::puppet
 
   $facts = {
     'server_identity' => 'test',
@@ -11,17 +12,17 @@ class global::default::coral inherits global::default {
 
   $puppet_config = {
     main => {
-      modulepath  => join([ "${puppet_repo_dir}/modules" ], ':'),
-      manifestdir => $puppet_repo_dir,
-      manifest    => "${puppet_repo_dir}/site.pp",
-      templatedir => "${puppet_repo_dir}/templates"
+      modulepath  => join([ "${global::default::puppet_repo_dir}/modules" ], ':'),
+      manifestdir => $global::default::puppet_repo_dir,
+      manifest    => "${global::default::puppet_repo_dir}/site.pp",
+      templatedir => "${global::default::puppet_repo_dir}/templates"
     }
   }
 
   $hiera_backends = [
     {
       'type'    => 'json',
-      'datadir' => $config_repo_dir
+      'datadir' => $global::default::config_repo_dir
     }
   ]
   $hiera_hierarchy = [
@@ -50,7 +51,7 @@ class global::default::coral inherits global::default {
     'PermitEmptyPasswords'   => 'yes',
     'PasswordAuthentication' => 'yes',
     'AllowGroups'            => [],
-    'AllowUsers'             => $::vagrant_exists ? { true => [ 'root', 'git', 'vagrant' ], default => [ 'root', 'git' ] }
+    'AllowUsers'             => ensure($::vagrant_exists, [ 'root', 'git', 'vagrant' ], [ 'root', 'git' ])
   }
 
   #---
@@ -58,7 +59,7 @@ class global::default::coral inherits global::default {
   $sudoers_config = {
     'specs' => {
       '%admin' => 'ALL=(ALL) NOPASSWD:ALL',
-      'git'    => "ALL=NOPASSWD:${coral::params::puppet_bin}"
+      'git'    => "ALL=NOPASSWD:${coral::params::puppet::bin}"
     }
   }
 }
