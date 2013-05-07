@@ -15,7 +15,7 @@ node default {
   #---
 
   import "*.pp"
-  include coral::default
+  include global::default
 
   #---
 
@@ -31,7 +31,7 @@ node default {
   include coral::firewall::pre_rules
   include coral::firewall::post_rules
 
-  Class['coral::default'] -> Class['coral']
+  Class['global::default'] -> Class['coral']
 
   Exec {
     user => $coral::params::exec_user,
