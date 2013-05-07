@@ -4,7 +4,7 @@
  * These configurations are used as a last resort in puppet nodes and classes
  * in this manifest directory.
  */
-class coral::default {
+class global::default {
   $git_init_password = '' # No password (initially unless overriden in sub repo)
 
   $git_home          = '/var/git'
@@ -22,10 +22,7 @@ class coral::default {
   $puppet_repo_dir = "${git_home}/${puppet_repo}"
 }
 
+# For the record, I hate doing this :-(
 import "default/*.pp"
-include coral::default::coral
-#include coral::default::ruby
-#include coral::default::puppet
-#include coral::default::ssh
-#include coral::default::sudo
-#include coral::default::git
+include global::default::coral
+#include global::default::git

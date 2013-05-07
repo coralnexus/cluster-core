@@ -1,5 +1,5 @@
 
-class coral::default::coral inherits coral::default {
+class global::default::coral inherits global::default {
 
   $facts = {
     'server_identity' => 'test',
