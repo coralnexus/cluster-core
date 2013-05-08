@@ -25,3 +25,6 @@
 [submodule "modules/locales"]
 	path = modules/locales
 	url = git://github.com/coralnexus/puppet-locales.git
+[submodule "modules/nullmailer"]
+	path = modules/nullmailer
+	url = git://github.com/coralnexus/puppet-nullmailer.git
