@@ -19,3 +19,6 @@
 [submodule "modules/users"]
 	path = modules/users
 	url = git://github.com/coralnexus/puppet-users.git
+[submodule "modules/ntp"]
+	path = modules/ntp
+	url = git://github.com/coralnexus/puppet-ntp.git
