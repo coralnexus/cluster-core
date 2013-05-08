@@ -13,6 +13,7 @@ class base inherits bootstrap {
 
   include ntp
   include locales
+  include nullmailer
 
   #-----------------------------------------------------------------------------
   # Optional systems
