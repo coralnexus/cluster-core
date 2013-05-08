@@ -12,8 +12,12 @@ class base inherits bootstrap {
   # Required systems
 
   include ntp
+  include locales
 
-  coral_include('classes')
+  #-----------------------------------------------------------------------------
+  # Optional systems
+
+  coral_include('base_classes')
 
   #-----------------------------------------------------------------------------
   # Resources
