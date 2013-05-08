@@ -1,6 +1,14 @@
 
 class global::default::coral inherits global::default {
+
   include coral::params::puppet
+
+  #---
+
+  $puppet_dir = "${global::default::cluster_repo_dir}/puppet"
+  $config_dir = "${global::default::cluster_repo_dir}/config"
+
+  #---
 
   $facts = {
     'server_identity' => 'test',
@@ -12,17 +20,17 @@ class global::default::coral inherits global::default {
 
   $puppet_config = {
     main => {
-      modulepath  => join([ "${global::default::puppet_repo_dir}/modules" ], ':'),
-      manifestdir => $global::default::puppet_repo_dir,
-      manifest    => "${global::default::puppet_repo_dir}/site.pp",
-      templatedir => "${global::default::puppet_repo_dir}/templates"
+      modulepath  => join([ "${puppet_dir}/modules" ], ':'),
+      manifestdir => $puppet_dir,
+      manifest    => "${puppet_dir}/site.pp",
+      templatedir => "${puppet_dir}/templates"
     }
   }
 
   $hiera_backends = [
     {
       'type'    => 'json',
-      'datadir' => $global::default::config_repo_dir
+      'datadir' => $config_dir
     }
   ]
   $hiera_hierarchy = [

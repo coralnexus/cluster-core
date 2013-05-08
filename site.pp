@@ -45,17 +45,17 @@ node default {
 
   import "profiles/*.pp"
 
-  if config_initialized and file_exists(global_param('config::common')) {
+  if config_initialized and file_exists(global_param('config_common')) {
     include base
     Class['coral'] -> Class['base']
 
     coral_include('profiles')
   }
   else {
-    $config_address = global_param('config::address')
+    $cluster_address = global_param('cluster_address')
 
     notice "Bootstrapping server"
-    notice "Push configurations to: ${config_address}"
+    notice "Push cluster definition to: ${cluster_address}"
 
     include bootstrap
     Class['coral'] -> Class['bootstrap']

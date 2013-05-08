@@ -5,14 +5,11 @@
  * in this manifest directory.
  */
 class global::default {
-  include coral::params
+
+  include coral::params::puppet
   include git::params
 
-  #---
-
   include global::default::coral
-  include global::default::users
-  include global::default::git
 
   #---
 
@@ -27,19 +24,16 @@ class global::default {
 
   #---
 
-  $config_repo          = 'config.git'
-  $config_repo_dir      = "${git_home_dir}/${config_repo}"
-
-  $config_address       = "${git_user}@${::fqdn}:${config_repo}"
-  $config_common        = "${config_repo_dir}/common.json"
-
-  #---
-
-  $puppet_source        = 'git://github.com/coralnexus/puppet-cluster.git'
+  $cluster_source       = undef
   $puppet_revision      = 'master'
 
-  $puppet_repo          = 'puppet.git'
-  $puppet_repo_dir      = "${git_home_dir}/${puppet_repo}"
+  $cluster_repo         = 'cluster.git'
+  $cluster_repo_dir     = "${git_home_dir}/${cluster_repo}"
+
+  $cluster_address      = "${git_user}@${::fqdn}:${cluster_repo}"
+  $config_common        = "${cluster_repo_dir}/config/common.json"
+
+  #---
 
   $post_update_commands = [ $coral::params::puppet::update_command ]
 }

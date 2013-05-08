@@ -4,14 +4,13 @@ class bootstrap {
   #-----------------------------------------------------------------------------
   # Properties
 
-  $vagrant_user         = global_param('vagrant_user')
+  $vagrant_user = global_param('vagrant_user')
 
-  $puppet_repo_dir      = global_param('puppet_repo_dir')
-  $puppet_source        = global_param('puppet_source')
-  $puppet_revision      = global_param('puppet_revision')
+  $cluster_source   = global_param('cluster_source')
+  $cluster_revision = global_param('cluster_revision')
+  $cluster_repo_dir = global_param('cluster_repo_dir')
+
   $post_update_commands = global_array('post_update_commands')
-
-  $config_repo_dir      = global_param('config_repo_dir')
 
   #-----------------------------------------------------------------------------
   # Required systems
@@ -29,15 +28,9 @@ class bootstrap {
   #-----------------------------------------------------------------------------
   # Resources
 
-  git::repo { $puppet_repo_dir:
-    source               => $puppet_source,
-    revision             => $puppet_revision,
-    base                 => false,
-    post_update_commands => $post_update_commands,
-  }
-
-  git::repo { $config_repo_dir:
-    revision             => '',
+  git::repo { $cluster_repo_dir:
+    source               => $cluster_source,
+    revision             => $cluster_revision,
     base                 => false,
     post_update_commands => $post_update_commands,
   }
