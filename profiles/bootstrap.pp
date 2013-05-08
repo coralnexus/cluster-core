@@ -2,12 +2,6 @@
 class bootstrap {
 
   #-----------------------------------------------------------------------------
-  # Required systems
-
-  include users
-  include git
-
-  #-----------------------------------------------------------------------------
   # Properties
 
   $vagrant_user         = global_param('vagrant_user')
@@ -18,6 +12,12 @@ class bootstrap {
   $post_update_commands = global_array('post_update_commands')
 
   $config_repo_dir      = global_param('config_repo_dir')
+
+  #-----------------------------------------------------------------------------
+  # Required systems
+
+  include users
+  include git
 
   #-----------------------------------------------------------------------------
   # Configuration
