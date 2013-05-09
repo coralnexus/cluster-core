@@ -6,10 +6,10 @@
  */
 class global::default {
 
+  include global::default::coral
+
   include coral::params::puppet
   include git::params
-
-  include global::default::coral
 
   #---
 
