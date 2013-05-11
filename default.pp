@@ -29,6 +29,7 @@ class global::default {
   #---
 
   include global::default::coral
+  include global::default::git
 }
 
 
