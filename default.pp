@@ -6,26 +6,19 @@
  */
 class global::default {
 
-  include global::default::coral
-
-  include coral::params::puppet
-  include git::params
-
-  #---
-
   # Vagrant user MUST be "vagrant" right now due to the vagrant_exists fact checking for user name.
   $vagrant_user = 'vagrant'
 
   #---
 
-  $git_user     = $git::params::user
-  $git_password = $git::params::password
-  $git_home_dir = $git::params::home_dir
+  $git_user     = 'git'
+  $git_password = ''
+  $git_home_dir = '/var/git'
 
   #---
 
   $cluster_source       = undef
-  $puppet_revision      = 'master'
+  $cluster_revision     = 'master'
 
   $cluster_repo         = 'cluster.git'
   $cluster_repo_dir     = "${git_home_dir}/${cluster_repo}"
@@ -35,7 +28,7 @@ class global::default {
 
   #---
 
-  $post_update_commands = [ $coral::params::puppet::update_command ]
+  include global::default::coral
 }
 
 
