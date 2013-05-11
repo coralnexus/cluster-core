@@ -9,13 +9,13 @@
 node default {
 
   Exec {
-    logoutput => "on_failure",
+    logoutput => 'on_failure',
   }
 
   #---
 
-  import "*.pp"
-  import "default/*.pp"
+  import 'default.pp'
+  import 'default/*.pp'
   include global::default
 
   #---
@@ -41,7 +41,7 @@ node default {
 
   #---
 
-  import "profiles/*.pp"
+  import 'profiles/*.pp'
 
   if config_initialized and file_exists(global_param('config_common')) {
     include base
@@ -52,7 +52,7 @@ node default {
   else {
     $cluster_address = global_param('cluster_address')
 
-    notice "Bootstrapping server"
+    notice 'Bootstrapping server'
     notice "Push cluster definition to: ${cluster_address}"
 
     include bootstrap
