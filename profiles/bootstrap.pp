@@ -10,7 +10,7 @@ class bootstrap {
   $cluster_revision = global_param('cluster_revision')
   $cluster_repo_dir = global_param('cluster_repo_dir')
 
-  $post_update_commands = global_array('post_update_commands')
+  $post_update_commands = global_array('post_update_commands', [ $coral::params::puppet::update_command ])
 
   #-----------------------------------------------------------------------------
   # Required systems
