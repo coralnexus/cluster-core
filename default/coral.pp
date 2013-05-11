@@ -1,5 +1,5 @@
 
-class global::default::coral inherits global::default {
+class global::default::coral {
 
   include coral::params::puppet
 
