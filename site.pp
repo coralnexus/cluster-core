@@ -12,13 +12,19 @@ node default {
     logoutput => 'on_failure',
   }
 
-  #---
+  #-----------------------------------------------------------------------------
+  # Defaults
 
   import 'default.pp'
   import 'default/*.pp'
   include global::default
 
   #---
+
+  $base_name = 'site'
+
+  #-----------------------------------------------------------------------------
+  # Initialization
 
   resources { "firewall":
     purge => true
@@ -39,7 +45,8 @@ node default {
     path => $coral::params::exec_path
   }
 
-  #---
+  #-----------------------------------------------------------------------------
+  # Specialization
 
   import 'profiles/*.pp'
 
@@ -57,5 +64,37 @@ node default {
 
     include bootstrap
     Class['coral'] -> Class['bootstrap']
+  }
+
+  #-----------------------------------------------------------------------------
+  # Logging
+
+  $property_owner     = global_param('property_owner', 'root')
+  $property_group     = global_param('property_group', 'admin')
+  $property_dir_mode  = global_param('property_dir_mode', '0744')
+  $property_file_mode = global_param('property_file_mode', '0744')
+
+  #---
+
+  # No configurations should be declared after this resource group.
+  coral::file { $base_name:
+    resources => {
+      log_dir => {
+        path => global_param('property_dir'),
+        ensure => 'directory',
+        owner  => $property_owner,
+        group  => $property_group,
+        mode   => $property_dir_mode
+      },
+      properties => {
+        path    => global_param('property_path'),
+        content => render(global_param('json_template', 'JSON'), configuration()),
+        ensure  => 'present',
+        owner   => $property_owner,
+        group   => $property_group,
+        mode    => $property_file_mode,
+        require => 'log_dir'
+      }
+    }
   }
 }
