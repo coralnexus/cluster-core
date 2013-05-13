@@ -12,7 +12,7 @@ class global::default {
   #---
 
   $git_user     = 'git'
-  $git_password = ''
+  $git_password = '$1$Sdrzl82I$Jen2/y4jvuCIWr69TgSGk.' # > gityup
   $git_home_dir = '/var/git'
 
   #---
