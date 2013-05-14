@@ -26,6 +26,12 @@ node default {
   #-----------------------------------------------------------------------------
   # Initialization
 
+  coral_options('lookup', {
+    search => [ 'global::default' ]
+  })
+
+  #---
+
   resources { "firewall":
     purge => true
   }
@@ -51,10 +57,12 @@ node default {
   import 'profiles/*.pp'
 
   if config_initialized and file_exists(global_param('config_common')) {
-    include base
-    Class['coral'] -> Class['base']
-
-    coral_include('profiles')
+    class { 'base':
+      require => Class['coral']
+    }
+    coral::include { 'profiles':
+      require => Class['base']
+    }
   }
   else {
     $cluster_address = global_param('cluster_address')
@@ -62,39 +70,8 @@ node default {
     notice 'Bootstrapping server'
     notice "Push cluster definition to: ${cluster_address}"
 
-    include bootstrap
-    Class['coral'] -> Class['bootstrap']
-  }
-
-  #-----------------------------------------------------------------------------
-  # Logging
-
-  $property_owner     = global_param('property_owner', 'root')
-  $property_group     = global_param('property_group', 'admin')
-  $property_dir_mode  = global_param('property_dir_mode', '0744')
-  $property_file_mode = global_param('property_file_mode', '0744')
-
-  #---
-
-  # No configurations should be declared after this resource group.
-  coral::file { $base_name:
-    resources => {
-      log_dir => {
-        path => global_param('property_dir'),
-        ensure => 'directory',
-        owner  => $property_owner,
-        group  => $property_group,
-        mode   => $property_dir_mode
-      },
-      properties => {
-        path    => global_param('property_path'),
-        content => render(global_param('json_template', 'JSON'), configuration()),
-        ensure  => 'present',
-        owner   => $property_owner,
-        group   => $property_group,
-        mode    => $property_file_mode,
-        require => 'log_dir'
-      }
+    class { 'bootstrap':
+      require => Class['coral']
     }
   }
 }
