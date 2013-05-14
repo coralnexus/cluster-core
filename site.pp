@@ -26,7 +26,7 @@ node default {
   #-----------------------------------------------------------------------------
   # Initialization
 
-  global_options('param', {
+  global_options('all', {
     search => [ 'global::default' ]
   })
 
