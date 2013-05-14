@@ -26,7 +26,7 @@ node default {
   #-----------------------------------------------------------------------------
   # Initialization
 
-  coral_options('param', {
+  global_options('param', {
     search => [ 'global::default' ]
   })
 
