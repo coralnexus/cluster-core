@@ -4,7 +4,7 @@
  * These configurations are used as a last resort in puppet nodes and classes
  * in this manifest directory.
  */
-class global::default {
+class core::default {
 
   # Vagrant user MUST be "vagrant" right now due to the vagrant_exists fact checking for user name.
   $vagrant_user = 'vagrant'
@@ -28,8 +28,8 @@ class global::default {
 
   #---
 
-  include global::default::coral
-  include global::default::git
+  include core::default::coral
+  include core::default::git
 }
 
 

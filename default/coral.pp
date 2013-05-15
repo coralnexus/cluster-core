@@ -1,12 +1,12 @@
 
-class global::default::coral inherits global::default {
+class core::default::coral inherits core::default {
 
   include coral::default
 
   #---
 
-  $puppet_dir = "${global::default::cluster_repo_dir}/puppet"
-  $config_dir = "${global::default::cluster_repo_dir}/config"
+  $puppet_dir = "${core::default::cluster_repo_dir}/puppet"
+  $config_dir = "${core::default::cluster_repo_dir}/config"
 
   #---
 

@@ -17,7 +17,7 @@ node default {
 
   import 'default.pp'
   import 'default/*.pp'
-  include global::default
+  include core::default
 
   #---
 
@@ -27,7 +27,7 @@ node default {
   # Initialization
 
   global_options('all', {
-    search => [ 'global::default' ]
+    search => [ 'core::default' ]
   })
 
   #---
@@ -44,7 +44,7 @@ node default {
   include coral::firewall::pre_rules
   include coral::firewall::post_rules
 
-  Class['global::default'] -> Class['coral']
+  Class['core::default'] -> Class['coral']
 
   Exec {
     user => $coral::params::exec_user,

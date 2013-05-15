@@ -1,11 +1,11 @@
 
-class global::default::git inherits global::default {
+class core::default::git inherits core::default {
 
   include git::default
 
   #---
 
-  $user     = $global::default::git_user
-  $password = $global::default::git_password
-  $home_dir = $global::default::git_home_dir
+  $user     = $core::default::git_user
+  $password = $core::default::git_password
+  $home_dir = $core::default::git_home_dir
 }
