@@ -31,3 +31,6 @@
 [submodule "modules/xinetd"]
 	path = modules/xinetd
 	url = git://github.com/coralnexus/puppet-xinetd.git
+[submodule "modules/haproxy"]
+	path = modules/haproxy
+	url = git://github.com/coralnexus/puppet-haproxy.git
