@@ -22,6 +22,9 @@ class base {
   include locales
   include nullmailer
 
+  include xinetd
+  include haproxy
+
   #-----------------------------------------------------------------------------
   # Optional systems
 
