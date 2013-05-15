@@ -56,22 +56,21 @@ node default {
 
   import 'profiles/*.pp'
 
-  if config_initialized and file_exists(global_param('config_common')) {
-    class { 'base':
-      require => Class['coral']
-    }
-    coral::include { 'profiles':
-      require => Class['base']
-    }
-  }
-  else {
+  if ! ( config_initialized and file_exists(global_param('config_common')) ) {
     $cluster_address = global_param('cluster_address')
 
     notice 'Bootstrapping server'
     notice "Push cluster definition to: ${cluster_address}"
+  }
 
-    class { 'bootstrap':
-      require => Class['coral']
-    }
+  #---
+
+  $base_class = global_param('base_profile', 'base')
+
+  class { $base_class:
+    require => Class['coral']
+  }
+  coral::include { 'profiles':
+    require => Class[$base_class]
   }
 }
