@@ -15,7 +15,7 @@ class base {
   $cluster_revision = global_param('cluster_revision')
   $cluster_repo     = global_param('cluster_repo')
 
-  $post_update_commands = global_array('cluster_post_update_commands', [ $coral::params::puppet::update_command ])
+  $cluster_update_commands = global_array('cluster_update_commands', [ $coral::params::puppet::update_command ])
 
   #-----------------------------------------------------------------------------
   # Required systems
@@ -51,6 +51,6 @@ class base {
     source               => $cluster_source,
     revision             => $cluster_revision,
     base                 => false,
-    post_update_commands => $post_update_commands,
+    post_update_commands => $cluster_update_commands
   }
 }
