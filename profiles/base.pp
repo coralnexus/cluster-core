@@ -1,5 +1,10 @@
-
+/**
+ * Basic high availability server profile.
+ */
 class base {
+
+  $base_name = 'base'
+  anchor { $base_name: }
 
   #-----------------------------------------------------------------------------
   # Properties
@@ -10,25 +15,27 @@ class base {
   $cluster_revision = global_param('cluster_revision')
   $cluster_repo     = global_param('cluster_repo')
 
-  $post_update_commands = global_array('post_update_commands', [ $coral::params::puppet::update_command ])
+  $post_update_commands = global_array('cluster_post_update_commands', [ $coral::params::puppet::update_command ])
 
   #-----------------------------------------------------------------------------
   # Required systems
 
-  include users
-  include git
+  class { 'users': require => Anchor[$base_name] }
+  class { 'git': require => Class['users'] }
 
-  include ntp
-  include locales
-  include nullmailer
+  class { 'ntp': require => Anchor[$base_name] }
+  class { 'locales': require => Anchor[$base_name] }
+  class { 'nullmailer': require => Anchor[$base_name] }
 
-  include xinetd
-  include haproxy
+  class { 'xinetd': require => Anchor[$base_name] }
+  class { 'haproxy': require => Anchor[$base_name] }
 
   #-----------------------------------------------------------------------------
   # Optional systems
 
-  coral_include('base_classes')
+  coral::include { 'base_classes':
+    require => Anchor[$base_name]
+  }
 
   #-----------------------------------------------------------------------------
   # Configuration
