@@ -56,12 +56,8 @@ node default {
 
   #---
 
-  $base_class = global_param('base_profile', 'base')
+  $base_profile = global_param('base_profile', 'base')
 
-  class { $base_class:
-    require => Class['coral']
-  }
-  coral::include { 'profiles':
-    require => Class[$base_class]
-  }
+  class { $base_profile: }
+  coral::include { 'profiles': }
 }

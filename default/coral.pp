@@ -34,10 +34,6 @@ class core::default::coral inherits core::default {
   $hiera_hierarchy = [
     "identity/%{::server_identity}/%{::server_stage}",
     "identity/%{::server_identity}",
-    "server/%{::server_environment}/%{::server_location}/%{::hostname}/%{::server_stage}",
-    "server/%{::server_environment}/%{::server_location}/%{::hostname}",
-    "server/%{::server_environment}/%{::hostname}/%{::server_stage}",
-    "server/%{::server_environment}/%{::hostname}",
     "server/%{::hostname}/%{::server_stage}",
     "server/%{::hostname}",
     "location/%{::server_location}/%{::server_stage}",
