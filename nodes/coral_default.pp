@@ -1,16 +1,11 @@
 /**
  * Gateway manifest to all Puppet classes.
  *
- * Note: This is the only node in this system.  We use it to dynamically
+ * Note: This is the only node in the Coral system.  We use it to dynamically
  * bootstrap or load and manage classes (profiles).
  *
  * This should allow the server to configure it's own profiles in the future.
  */
-#--------------------------------------------------------------------------------
-# Imports
-
-import 'import.pp'
-
 #--------------------------------------------------------------------------------
 # Defaults
 
@@ -42,7 +37,7 @@ node default {
   include coral::firewall::pre_rules
   include coral::firewall::post_rules
 
-  Class['core::default'] -> Class['coral']
+  Class['coral_base::default'] -> Class['coral']
 
   #-----------------------------------------------------------------------------
   # Specialization
@@ -56,7 +51,7 @@ node default {
 
   #---
 
-  $base_profile = global_param('base_profile', 'base')
+  $base_profile = global_param('base_profile', 'coral_base')
 
   class { $base_profile: }
   coral::include { 'profiles': }
