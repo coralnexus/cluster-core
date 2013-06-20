@@ -4,7 +4,7 @@
  * These configurations are used as a last resort in puppet nodes and classes
  * in this manifest directory.
  */
-class core::default {
+class coral_base::default {
 
   # Vagrant user MUST be "vagrant" right now due to the vagrant_exists fact checking for user name.
   $vagrant_user = 'vagrant'
@@ -25,11 +25,6 @@ class core::default {
 
   $cluster_address      = "${git_user}@${::fqdn}:${cluster_repo}"
   $config_common        = "${cluster_repo_dir}/config/common.json"
-
-  #---
-
-  include core::default::coral
-  include core::default::git
 }
 
 
