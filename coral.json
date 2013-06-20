@@ -1,0 +1,69 @@
+{
+  "nodes": {
+    "coral_base": "default"
+  },
+  "profiles": { 
+    "coral_base": "coral_base" 
+  },
+  "default": { 
+    "coral_base": "coral_base::default", 
+    "coral_base_coral": {
+      "class": "coral_base::default::coral",
+      "require": "coral_base"
+    }, 
+    "coral_base_git": {
+      "class": "coral_base::default::git",
+      "require": "coral_base"
+    } 
+  },
+  "modules": {
+    "stdlib": {
+      "url": ["github:puppetlabs/puppetlabs-stdlib", "github:coralnexus/puppetlabs-stdlib"],
+      "revision": "master"
+    },
+    "apt": {
+      "url": ["github:puppetlabs/puppetlabs-apt", "github:coralnexus/puppetlabs-apt"],
+      "revision": "master"
+    },
+    "firewall": {
+      "url": ["github:puppetlabs/puppetlabs-firewall", "github:coralnexus/puppetlabs-firewall"],
+      "revision": "master"
+    },
+    "vcsrepo": {
+      "url": ["github:puppetlabs/puppetlabs-vcsrepo", "github:coralnexus/puppetlabs-vcsrepo"],
+      "revision": "master"
+    },
+    "coral": {
+      "url": "github:coralnexus/puppet-coral",
+      "revision": "0.3"
+    },
+    "locales": {
+      "url": "github:coralnexus/puppet-locales",
+      "revision": "master"
+    },
+    "users": {
+      "url": "github:coralnexus/puppet-users",
+      "revision": "master"
+    },
+    "git": {
+      "url": "github:coralnexus/puppet-git",
+      "revision": "master"
+    },
+    "ntp": {
+      "url": "github:coralnexus/puppet-ntp",
+      "revision": "master"
+    },
+    "nullmailer": {
+      "url": "github:coralnexus/puppet-nullmailer",
+      "revision": "master"
+    },
+    "xinetd": {
+      "url": "github:coralnexus/puppet-xinetd",
+      "revision": "master"
+    },
+    "haproxy": {
+      "url": "github:coralnexus/puppet-haproxy",
+      "revision": "master"
+    }
+  }
+}
