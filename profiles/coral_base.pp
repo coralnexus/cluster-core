@@ -1,7 +1,7 @@
 /**
  * Basic high availability server profile.
  */
-class base {
+class coral_base {
 
   $base_name = 'base'
   anchor { $base_name: }
