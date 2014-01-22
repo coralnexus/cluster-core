@@ -48,10 +48,10 @@ node default {
   # Specialization
 
   if ! ( config_initialized and file_exists(global_param('config_common')) ) {
-    $cluster_address = global_param('cluster_address')
+    $cloud_address = global_param('cloud_address')
 
     notice 'Bootstrapping server'
-    notice "Push cluster definition to: ${cluster_address}"
+    notice "Push cluster definition to: ${cloud_address}"
   }
 
   #---

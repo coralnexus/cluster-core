@@ -5,8 +5,8 @@ class core::default::coral inherits core::default {
 
   #---
 
-  $puppet_dir = "${core::default::cluster_repo_dir}/puppet"
-  $config_dir = "${core::default::cluster_repo_dir}/config"
+  $puppet_dir = "${core::default::cloud_repo_dir}/puppet"
+  $config_dir = "${core::default::cloud_repo_dir}/config"
 
   #---
 

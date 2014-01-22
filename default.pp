@@ -17,14 +17,14 @@ class core::default {
 
   #---
 
-  $cluster_source       = undef
-  $cluster_revision     = 'master'
+  $cloud_source       = undef
+  $cloud_revision     = 'master'
 
-  $cluster_repo         = 'cluster.git'
-  $cluster_repo_dir     = "${git_home_dir}/${cluster_repo}"
+  $cloud_repo         = 'cloud.git'
+  $cloud_repo_dir     = "${git_home_dir}/${cloud_repo}"
 
-  $cluster_address      = "${git_user}@${::fqdn}:${cluster_repo}"
-  $config_common        = "${cluster_repo_dir}/config/common.json"
+  $cloud_address      = "${git_user}@${::fqdn}:${cloud_repo}"
+  $config_common      = "${cloud_repo_dir}/config/common.json"
 
   #---
 

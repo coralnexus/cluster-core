@@ -11,11 +11,11 @@ class base {
 
   $vagrant_user = global_param('vagrant_user')
 
-  $cluster_source   = global_param('cluster_source')
-  $cluster_revision = global_param('cluster_revision')
-  $cluster_repo     = global_param('cluster_repo')
+  $cloud_source   = global_param('cloud_source')
+  $cloud_revision = global_param('cloud_revision')
+  $cloud_repo     = global_param('cloud_repo')
 
-  $cluster_update_commands = global_array('cluster_update_commands', [ $coral::params::puppet::update_command ])
+  $cloud_update_commands = global_array('cloud_update_commands', [ $coral::params::puppet::update_command ])
 
   #-----------------------------------------------------------------------------
   # Required systems
@@ -47,10 +47,10 @@ class base {
   #-----------------------------------------------------------------------------
   # Resources
 
-  git::repo { $cluster_repo:
-    source               => $cluster_source,
-    revision             => $cluster_revision,
+  git::repo { $cloud_repo:
+    source               => $cloud_source,
+    revision             => $cloud_revision,
     base                 => false,
-    post_update_commands => $cluster_update_commands
+    post_update_commands => $cloud_update_commands
   }
 }
