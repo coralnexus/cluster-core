@@ -1,4 +1,5 @@
 {
+  "name": "coralnexus::core",
   "modules": {
     "apt": "github:::coralnexus/puppetlabs-apt",
     "corl": "github:::coralnexus/puppet-corl[0.4]",

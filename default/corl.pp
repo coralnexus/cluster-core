@@ -1,20 +1,8 @@
 
-class core::default::coral inherits core::default {
+class coralnexus::core::default::corl {
 
-  include coral::default
-
-  #---
-
-  $puppet_dir = "${core::default::cloud_repo_dir}/puppet"
-  $config_dir = "${core::default::cloud_repo_dir}/config"
-
-  #---
-
-  $facts = {
-    'server_identity' => 'test',
-    'server_stage'    => 'bootstrap',
-    'server_type'     => 'core'
-  }
+  $puppet_dir = "${::corl_network}/build/puppetnode"
+  $config_dir = "${::corl_network}/config"
 
   #---
 
@@ -22,7 +10,7 @@ class core::default::coral inherits core::default {
     main => {
       modulepath  => join([ "${puppet_dir}/modules" ], ':'),
       manifestdir => $puppet_dir,
-      manifest    => "${puppet_dir}/site.pp",
+      manifest    => "${puppet_dir}/gateway.pp",
       templatedir => "${puppet_dir}/templates"
     }
   }
@@ -60,8 +48,7 @@ class core::default::coral inherits core::default {
 
   $sudoers_config = {
     'specs' => {
-      '%admin' => 'ALL=(ALL) NOPASSWD:ALL',
-      '%git'   => "ALL=NOPASSWD:${coral::default::puppet_bin}"
+      '%admin' => 'ALL=(ALL) NOPASSWD:ALL'
     }
   }
 }
