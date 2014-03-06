@@ -1,7 +1,7 @@
 /**
  * Basic high availability server profile (that's the goal anyway).
  */
-class base {
+class coralnexus::core::profile::base {
 
   $base_name = 'base'
   anchor { $base_name: }

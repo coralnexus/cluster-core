@@ -47,7 +47,7 @@ node default {
 
   #---
 
-  $base_profile = global_param('base_profile', 'base')
+  $base_profile = global_param('base_profile', 'coralnexus::core::profile::base')
 
   class { $base_profile: }
   corl::include { 'profiles': }
