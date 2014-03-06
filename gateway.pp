@@ -1,9 +1,3 @@
-/**
- * Gateway manifest to all Puppet classes.
- *
- * Note: This is the only node in this system.  We use it to dynamically
- * bootstrap or load and manage classes (profiles).
- */
 
 #--------------------------------------------------------------------------------
 # Defaults
@@ -38,17 +32,9 @@ node default {
 
   Class['coralnexus::core::default'] -> Class['corl']
 
-  #-----------------------------------------------------------------------------
-  # Specialization
+  #---
 
   if ! config_initialized {
     notice 'Bootstrapping server'
   }
-
-  #---
-
-  $base_profile = global_param('base_profile', 'coralnexus::core::profile::base')
-
-  class { $base_profile: }
-  corl::include { 'profiles': }
 }
