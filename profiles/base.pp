@@ -3,7 +3,7 @@
  */
 class coralnexus::core::profile::base {
 
-  $base_name = 'base'
+  $base_name = 'coralnexus_base'
   anchor { $base_name: }
 
   #-----------------------------------------------------------------------------
