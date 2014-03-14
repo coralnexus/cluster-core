@@ -36,7 +36,7 @@ node default {
 
   #---
 
-  if ! config_initialized {
+  if ! $::corl_config_ready {
     notice "Bootstrapping server"
   }
   
