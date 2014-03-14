@@ -28,9 +28,7 @@ node default {
   #-----------------------------------------------------------------------------
   # Initialization
 
-  corl::include { 'corl':
-    require => Anchor['gateway-init']
-  }
+  corl::include { 'corl': require => Anchor['gateway-init'] }
   include corl::firewall::pre_rules
   include corl::firewall::post_rules
 
