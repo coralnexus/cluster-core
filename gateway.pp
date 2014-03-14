@@ -22,19 +22,24 @@ Exec {
 # Gateway
 
 node default {
+  
+  anchor { 'gateway-init': }
 
   #-----------------------------------------------------------------------------
   # Initialization
 
-  include corl
+  corl::include { 'corl':
+    require => Anchor['gateway-init']
+  }
   include corl::firewall::pre_rules
   include corl::firewall::post_rules
-
-  Class['coralnexus::core::default'] -> Class['corl']
 
   #---
 
   if ! config_initialized {
-    notice 'Bootstrapping server'
+    notice "Bootstrapping server"
   }
+  
+  # Attach profiles here...
+  anchor { 'gateway-exit': require => Class['corl'] }
 }
