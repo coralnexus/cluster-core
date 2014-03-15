@@ -30,7 +30,7 @@ node default {
   
   corl_initialize()
 
-  corl::include { 'corl': require => Anchor['gateway_init'] }
+  class { 'corl': require => Anchor['gateway_init'] }
   include corl::firewall::pre_rules
   include corl::firewall::post_rules
 
