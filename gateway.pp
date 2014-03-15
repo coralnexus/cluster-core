@@ -23,21 +23,17 @@ Exec {
 
 node default {
   
-  anchor { 'gateway-init': }
+  anchor { 'gateway_init': }
 
   #-----------------------------------------------------------------------------
   # Initialization
+  
+  corl_initialize()
 
-  corl::include { 'corl': require => Anchor['gateway-init'] }
+  corl::include { 'corl': require => Anchor['gateway_init'] }
   include corl::firewall::pre_rules
   include corl::firewall::post_rules
 
-  #---
-
-  if ! $::corl_config_ready {
-    notice "Bootstrapping server"
-  }
-  
   # Attach profiles here...
-  anchor { 'gateway-exit': require => Class['corl'] }
+  anchor { 'gateway_exit': require => Class['corl'] }
 }
