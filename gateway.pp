@@ -2,6 +2,10 @@
 #--------------------------------------------------------------------------------
 # Defaults
 
+corl_initialize()
+
+#---
+
 resources { "firewall":
   purge => true
 }
@@ -24,16 +28,14 @@ Exec {
 node default {
   
   anchor { 'gateway_init': }
-
-  #-----------------------------------------------------------------------------
-  # Initialization
   
-  corl_initialize()
+  #-----------------------------------------------------------------------------
+  # Initialization 
 
   class { 'corl': require => Anchor['gateway_init'] }
   include corl::firewall::pre_rules
   include corl::firewall::post_rules
 
   # Attach profiles here...
-  anchor { 'gateway_exit': require => Class['corl'] }
+  anchor { 'profile_start': require => Class['corl'] }
 }
