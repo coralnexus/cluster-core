@@ -40,7 +40,7 @@ class coralnexus::core::default::corl {
 
   #---
 
-  $ssh_config = {
+  $sshd_config = {
     'Port'                   => 22,
     'PermitRootLogin'        => 'yes',
     'PermitEmptyPasswords'   => 'no',
