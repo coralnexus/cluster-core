@@ -1,9 +1,8 @@
-<<<<<<< HEAD
-.project_cache
-=======
 # Eclipse project files
 .project
 .buildpath
 .cache
 .settings
->>>>>>> 8fd020add337e55f896b68dbc9055dd874a4c8c7
+
+# CORL ignores
+.project_cache
