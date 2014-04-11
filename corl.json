@@ -5,15 +5,15 @@
         "profiles": {
           "base": {
             "modules": {
-              "apt": "github:::coralnexus/puppetlabs-apt",
+              "apt": "github:::puppetlabs/puppetlabs-apt",
               "corl": "github:::coralnexus/puppet-corl[0.4]",
-              "firewall": "github:::coralnexus/puppetlabs-firewall",
+              "firewall": "github:::puppetlabs/puppetlabs-firewall",
               "git": "github:::coralnexus/puppet-git",
               "haproxy": "github:::coralnexus/puppet-haproxy",
               "locales": "github:::coralnexus/puppet-locales",
               "ntp": "github:::coralnexus/puppet-ntp",
               "nullmailer": "github:::coralnexus/puppet-nullmailer",
-              "stdlib": "github:::coralnexus/puppetlabs-stdlib",
+              "stdlib": "github:::puppetlabs/puppetlabs-stdlib",
               "users": "github:::coralnexus/puppet-users",
               "vcsrepo": "github:::coralnexus/puppetlabs-vcsrepo",
               "xinetd": "github:::coralnexus/puppet-xinetd"
