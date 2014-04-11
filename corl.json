@@ -15,7 +15,7 @@
               "nullmailer": "github:::coralnexus/puppet-nullmailer",
               "stdlib": "github:::puppetlabs/puppetlabs-stdlib",
               "users": "github:::coralnexus/puppet-users",
-              "vcsrepo": "github:::coralnexus/puppetlabs-vcsrepo",
+              "vcsrepo": "github:::puppetlabs/puppetlabs-vcsrepo",
               "xinetd": "github:::coralnexus/puppet-xinetd"
             }
           }
