@@ -5,17 +5,17 @@
         "profiles": {
           "base": {
             "modules": {
-              "apt": "github:::puppetlabs/puppetlabs-apt",
-              "corl": "github:::coralnexus/puppet-corl[0.4]",
+              "stdlib": "github:::puppetlabs/puppetlabs-stdlib",
               "firewall": "github:::puppetlabs/puppetlabs-firewall",
+              "apt": "github:::puppetlabs/puppetlabs-apt",
+              "vcsrepo": "github:::puppetlabs/puppetlabs-vcsrepo",
+              "corl": "github:::coralnexus/puppet-corl[0.4]",
+              "users": "github:::coralnexus/puppet-users",
               "git": "github:::coralnexus/puppet-git",
-              "haproxy": "github:::coralnexus/puppet-haproxy",
               "locales": "github:::coralnexus/puppet-locales",
               "ntp": "github:::coralnexus/puppet-ntp",
+              "haproxy": "github:::coralnexus/puppet-haproxy",
               "nullmailer": "github:::coralnexus/puppet-nullmailer",
-              "stdlib": "github:::puppetlabs/puppetlabs-stdlib",
-              "users": "github:::coralnexus/puppet-users",
-              "vcsrepo": "github:::puppetlabs/puppetlabs-vcsrepo",
               "xinetd": "github:::coralnexus/puppet-xinetd"
             }
           }
