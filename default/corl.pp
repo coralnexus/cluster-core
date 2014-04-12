@@ -2,9 +2,18 @@
 class coralnexus::core::default::corl {
 
   $config_dir = "${::corl_network}/config"
-  
+
   #---
-  
+
+  if ::vagrant_exists {
+    # Can't change file info when NFS mounted (as the CORL log directory often is)
+    $log_owner    = undef
+    $log_group    = undef
+    $log_dir_mode = undef
+  }
+
+  #---
+
   $puppet_config = {
     'main' => {
       'data_binding_terminus' => 'corl',
@@ -13,7 +22,7 @@ class coralnexus::core::default::corl {
       'hiera_config'          => undef
     }
   }
-  
+
   $puppet_update_command = "sudo corl provision"
 
   #---
