@@ -9,7 +9,7 @@
               "concat": "github:::puppetlabs/puppetlabs-concat",
               "firewall": "github:::puppetlabs/puppetlabs-firewall",
               "apt": "github:::puppetlabs/puppetlabs-apt",
-              "vcsrepo": "github:::puppetlabs/puppetlabs-vcsrepo",
+              "vcsrepo": "github:::puppetlabs/puppetlabs-vcsrepo[46588aa62d444c5f0a538cccec357a80cd191b93]",
               "corl": "github:::coralnexus/puppet-corl[0.4]",
               "users": "github:::coralnexus/puppet-users",
               "git": "github:::coralnexus/puppet-git",
