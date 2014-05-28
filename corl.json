@@ -2,22 +2,47 @@
   "provisioners": {
     "puppetnode": {
       "coralnexus::core": {
+        "gateway": "packages/coralnexus_core/gateway.pp",
         "profiles": {
           "base": {
-            "modules": {
-              "stdlib": "github:::puppetlabs/puppetlabs-stdlib",
-              "concat": "github:::puppetlabs/puppetlabs-concat",
-              "firewall": "github:::puppetlabs/puppetlabs-firewall",
-              "apt": "github:::puppetlabs/puppetlabs-apt",
-              "vcsrepo": "github:::puppetlabs/puppetlabs-vcsrepo[46588aa62d444c5f0a538cccec357a80cd191b93]",
-              "corl": "github:::coralnexus/puppet-corl[0.4]",
-              "users": "github:::coralnexus/puppet-users",
-              "git": "github:::coralnexus/puppet-git",
-              "locales": "github:::coralnexus/puppet-locales",
-              "ntp": "github:::coralnexus/puppet-ntp",
-              "haproxy": "github:::coralnexus/puppet-haproxy",
-              "nullmailer": "github:::coralnexus/puppet-nullmailer",
-              "xinetd": "github:::coralnexus/puppet-xinetd"
+            "environment": {
+              "production": {
+                "modules": {
+                  "stdlib": "github:::puppetlabs/puppetlabs-stdlib[0cda8587440f2a9c1d5af174f3fd21ed72fa3ca2]",
+                  "concat": "github:::puppetlabs/puppetlabs-concat[ad11960250e060c2a0272a0aa2054425fb4f6db8]",
+                  "firewall": "github:::puppetlabs/puppetlabs-firewall[6eab758b4689dc7612be3ed037d028f81597beb8]",
+                  "apt": "github:::puppetlabs/puppetlabs-apt[6697a9c9711b77d1f6a7b7ee6c1c2c1f428f8362]",
+                  "vcsrepo": "github:::puppetlabs/puppetlabs-vcsrepo[46588aa62d444c5f0a538cccec357a80cd191b93]",
+                  "corl": "github:::coralnexus/puppet-corl[b67e0606cdbf99a1ef4a06172c54be1230fb0476]",
+                  "users": "github:::coralnexus/puppet-users[fd0903ccb5928d20f322017310135c7dbacca580]",
+                  "git": "github:::coralnexus/puppet-git[90a8dd14f2c56f8d82280a0e443db696cd3ce041]",
+                  "locales": "github:::coralnexus/puppet-locales[ce99842d101197b1e2c7d2262bb914ffa8892aaf]",
+                  "ntp": "github:::coralnexus/puppet-ntp[e3a485eddc40408d67b89f21c24f372cc01241e8]",
+                  "haproxy": "github:::coralnexus/puppet-haproxy[c9b71f9fe11dad375940f99fb0641ad19d88ded2]",
+                  "nullmailer": "github:::coralnexus/puppet-nullmailer[135b99edf05f8f192b11b340f0ee93663495034e]",
+                  "xinetd": "github:::coralnexus/puppet-xinetd[499f680705341a87e8c494a400c56a8ba2560be7]"
+                }
+              },
+              "qa": {
+                "use": "production"
+              },
+              "default": {
+                "modules": {
+                  "stdlib": "github:::puppetlabs/puppetlabs-stdlib",
+                  "concat": "github:::puppetlabs/puppetlabs-concat",
+                  "firewall": "github:::puppetlabs/puppetlabs-firewall",
+                  "apt": "github:::puppetlabs/puppetlabs-apt",
+                  "vcsrepo": "github:::puppetlabs/puppetlabs-vcsrepo[46588aa62d444c5f0a538cccec357a80cd191b93]",
+                  "corl": "github:::coralnexus/puppet-corl[0.4]",
+                  "users": "github:::coralnexus/puppet-users",
+                  "git": "github:::coralnexus/puppet-git",
+                  "locales": "github:::coralnexus/puppet-locales",
+                  "ntp": "github:::coralnexus/puppet-ntp",
+                  "haproxy": "github:::coralnexus/puppet-haproxy",
+                  "nullmailer": "github:::coralnexus/puppet-nullmailer",
+                  "xinetd": "github:::coralnexus/puppet-xinetd"
+                }
+              }
             }
           }
         }
