@@ -13,14 +13,14 @@
                   "firewall": "github:::puppetlabs/puppetlabs-firewall[6eab758b4689dc7612be3ed037d028f81597beb8]",
                   "apt": "github:::puppetlabs/puppetlabs-apt[6697a9c9711b77d1f6a7b7ee6c1c2c1f428f8362]",
                   "vcsrepo": "github:::puppetlabs/puppetlabs-vcsrepo[46588aa62d444c5f0a538cccec357a80cd191b93]",
-                  "corl": "github:::coralnexus/puppet-corl[b67e0606cdbf99a1ef4a06172c54be1230fb0476]",
-                  "users": "github:::coralnexus/puppet-users[fd0903ccb5928d20f322017310135c7dbacca580]",
-                  "git": "github:::coralnexus/puppet-git[90a8dd14f2c56f8d82280a0e443db696cd3ce041]",
+                  "corl": "github:::coralnexus/puppet-corl[fcceb862daddb2c2086ef3795d93cab5ef706b02]",
+                  "users": "github:::coralnexus/puppet-users[ec4b440776b0a2fc5f8061708055cdf955183427]",
+                  "git": "github:::coralnexus/puppet-git[d9f01ce11d9c07d368f8777cb4dfbeed60ae4d41]",
                   "locales": "github:::coralnexus/puppet-locales[ce99842d101197b1e2c7d2262bb914ffa8892aaf]",
-                  "ntp": "github:::coralnexus/puppet-ntp[e3a485eddc40408d67b89f21c24f372cc01241e8]",
-                  "haproxy": "github:::coralnexus/puppet-haproxy[c9b71f9fe11dad375940f99fb0641ad19d88ded2]",
+                  "ntp": "github:::coralnexus/puppet-ntp[eadfbe4c86e3ed163575e86388c2c682f7c64873]",
+                  "haproxy": "github:::coralnexus/puppet-haproxy[851ff40cc3ec510b8232dbd2bd54ff5079bc1321]",
                   "nullmailer": "github:::coralnexus/puppet-nullmailer[135b99edf05f8f192b11b340f0ee93663495034e]",
-                  "xinetd": "github:::coralnexus/puppet-xinetd[499f680705341a87e8c494a400c56a8ba2560be7]"
+                  "xinetd": "github:::coralnexus/puppet-xinetd[5ae0d88a6578d3a2c680c85cbdbfac5a7c9b7fbe]"
                 }
               },
               "qa": {
@@ -33,7 +33,7 @@
                   "firewall": "github:::puppetlabs/puppetlabs-firewall",
                   "apt": "github:::puppetlabs/puppetlabs-apt",
                   "vcsrepo": "github:::puppetlabs/puppetlabs-vcsrepo[46588aa62d444c5f0a538cccec357a80cd191b93]",
-                  "corl": "github:::coralnexus/puppet-corl[0.4]",
+                  "corl": "github:::coralnexus/puppet-corl[0.5]",
                   "users": "github:::coralnexus/puppet-users",
                   "git": "github:::coralnexus/puppet-git",
                   "locales": "github:::coralnexus/puppet-locales",
