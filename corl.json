@@ -2,7 +2,7 @@
   "provisioners": {
     "puppetnode": {
       "coralnexus::core": {
-        "gateway": "packages/coralnexus_core/gateway.pp",
+        "gateway": "gateway.pp",
         "profiles": {
           "base": {
             "environment": {
