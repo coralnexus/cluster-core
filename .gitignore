@@ -6,3 +6,4 @@
 
 # CORL ignores
 .project_cache
+.corl
