@@ -13,7 +13,7 @@
                   "firewall": "github:::puppetlabs/puppetlabs-firewall[6eab758b4689dc7612be3ed037d028f81597beb8]",
                   "apt": "github:::puppetlabs/puppetlabs-apt[6697a9c9711b77d1f6a7b7ee6c1c2c1f428f8362]",
                   "vcsrepo": "github:::puppetlabs/puppetlabs-vcsrepo[46588aa62d444c5f0a538cccec357a80cd191b93]",
-                  "corl": "github:::coralnexus/puppet-corl[547767eed30dd33fa1a7f37c2ff718fdf5f3298e]",
+                  "corl": "github:::coralnexus/puppet-corl[c691c9a288779b40d45a7529278502f961f89736]",
                   "users": "github:::coralnexus/puppet-users[ec4b440776b0a2fc5f8061708055cdf955183427]",
                   "git": "github:::coralnexus/puppet-git[d9f01ce11d9c07d368f8777cb4dfbeed60ae4d41]",
                   "locales": "github:::coralnexus/puppet-locales[ce99842d101197b1e2c7d2262bb914ffa8892aaf]",
