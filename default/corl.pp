@@ -23,8 +23,6 @@ class coralnexus::core::default::corl {
     }
   }
 
-  $puppet_update_command = "sudo corl provision"
-
   #---
 
   $hiera_json_backend = {
