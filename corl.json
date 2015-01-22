@@ -20,7 +20,7 @@
                   "ntp": "github:::coralnexus/puppet-ntp[eadfbe4c86e3ed163575e86388c2c682f7c64873]",
                   "haproxy": "github:::coralnexus/puppet-haproxy[851ff40cc3ec510b8232dbd2bd54ff5079bc1321]",
                   "nullmailer": "github:::coralnexus/puppet-nullmailer[135b99edf05f8f192b11b340f0ee93663495034e]",
-                  "xinetd": "github:::coralnexus/puppet-xinetd[5ae0d88a6578d3a2c680c85cbdbfac5a7c9b7fbe]"
+                  "xinetd": "github:::coralnexus/puppet-xinetd[bec77d6b00f1e57deeaee9149713480c85b8a039]"
                 }
               },
               "qa": {
