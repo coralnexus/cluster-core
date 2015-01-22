@@ -14,7 +14,7 @@
                   "apt": "github:::puppetlabs/puppetlabs-apt[6697a9c9711b77d1f6a7b7ee6c1c2c1f428f8362]",
                   "vcsrepo": "github:::puppetlabs/puppetlabs-vcsrepo[ce6b7d3b1ebf54b5b4073769ac38c342e2afc147]",
                   "corl": "github:::coralnexus/puppet-corl[8c1647955841a8726828224ceabe7e49746b3e5e]",
-                  "users": "github:::coralnexus/puppet-users[ec4b440776b0a2fc5f8061708055cdf955183427]",
+                  "users": "github:::coralnexus/puppet-users[e24e0a1aaa06be4eb744484a046059d094adb0c3]",
                   "git": "github:::coralnexus/puppet-git[9e6748406d0a13ec4f2f45cf43d13fdb0d6a5417]",
                   "locales": "github:::coralnexus/puppet-locales[ce99842d101197b1e2c7d2262bb914ffa8892aaf]",
                   "ntp": "github:::coralnexus/puppet-ntp[eadfbe4c86e3ed163575e86388c2c682f7c64873]",
