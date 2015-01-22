@@ -17,7 +17,9 @@ class coralnexus::core::profile::base {
   class { 'users': require => Anchor[$base_name] }
   class { 'git': require => Class['users'] }
 
-  class { 'ntp': require => Anchor[$base_name] }
+  if $::virtual != 'docker' {
+    class { 'ntp': require => Anchor[$base_name] }
+  }
   class { 'locales': require => Anchor[$base_name] }
   class { 'nullmailer': require => Anchor[$base_name] }
 
