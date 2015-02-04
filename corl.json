@@ -20,7 +20,8 @@
                   "ntp": "github:::coralnexus/puppet-ntp[eadfbe4c86e3ed163575e86388c2c682f7c64873]",
                   "haproxy": "github:::coralnexus/puppet-haproxy[851ff40cc3ec510b8232dbd2bd54ff5079bc1321]",
                   "nullmailer": "github:::coralnexus/puppet-nullmailer[135b99edf05f8f192b11b340f0ee93663495034e]",
-                  "xinetd": "github:::coralnexus/puppet-xinetd[bec77d6b00f1e57deeaee9149713480c85b8a039]"
+                  "xinetd": "github:::coralnexus/puppet-xinetd[bec77d6b00f1e57deeaee9149713480c85b8a039]",
+                  "incinga2": "github:::Icinga/puppet-icinga2[c3697ba7304c1cbf903515abbee969ece645f83a]"
                 }
               },
               "qa": {
@@ -40,7 +41,25 @@
                   "ntp": "github:::coralnexus/puppet-ntp",
                   "haproxy": "github:::coralnexus/puppet-haproxy",
                   "nullmailer": "github:::coralnexus/puppet-nullmailer",
-                  "xinetd": "github:::coralnexus/puppet-xinetd"
+                  "xinetd": "github:::coralnexus/puppet-xinetd",
+                  "incinga2": "github:::Icinga/puppet-icinga2"
+                }
+              }
+            }
+          },
+          "percona_server": {
+            "environment": {
+              "production": {
+                "modules": {
+                  "percona": "github:::coralnexus/puppet-percona[39af801c684c388f56ff2519d34c0bc6cbbdc92f]"
+                }
+              },
+              "qa": {
+                "use": "production"
+              },
+              "default": {
+                "modules": {
+                  "percona": "github:::coralnexus/puppet-percona"
                 }
               }
             }
