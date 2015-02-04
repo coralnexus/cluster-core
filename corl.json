@@ -47,6 +47,23 @@
               }
             }
           },
+          "php": {
+            "environment": {
+              "production": {
+                "modules": {
+                  "php": "github:::coralnexus/puppet-php[1875d16775ffcebcab56ccd74f0806d1d05116a2]"
+                }
+              },
+              "qa": {
+                "use": "production"
+              },
+              "default": {
+                "modules": {
+                  "php": "github:::coralnexus/puppet-php"
+                }
+              }
+            }
+          },
           "percona_server": {
             "environment": {
               "production": {
