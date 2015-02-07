@@ -21,7 +21,7 @@
                   "haproxy": "github:::coralnexus/puppet-haproxy[851ff40cc3ec510b8232dbd2bd54ff5079bc1321]",
                   "nullmailer": "github:::coralnexus/puppet-nullmailer[135b99edf05f8f192b11b340f0ee93663495034e]",
                   "xinetd": "github:::coralnexus/puppet-xinetd[bec77d6b00f1e57deeaee9149713480c85b8a039]",
-                  "incinga2": "github:::Icinga/puppet-icinga2[c3697ba7304c1cbf903515abbee969ece645f83a]"
+                  "icinga2": "github:::Icinga/puppet-icinga2[c3697ba7304c1cbf903515abbee969ece645f83a]"
                 }
               },
               "qa": {
@@ -42,7 +42,7 @@
                   "haproxy": "github:::coralnexus/puppet-haproxy",
                   "nullmailer": "github:::coralnexus/puppet-nullmailer",
                   "xinetd": "github:::coralnexus/puppet-xinetd",
-                  "incinga2": "github:::Icinga/puppet-icinga2"
+                  "icinga2": "github:::Icinga/puppet-icinga2"
                 }
               }
             }
@@ -77,6 +77,24 @@
               "default": {
                 "modules": {
                   "percona": "github:::coralnexus/puppet-percona"
+                }
+              }
+            }
+          },
+          "icinga_server": {
+            "extend": "percona_server",
+            "environment": {
+              "production": {
+                "modules": {
+                  "icinga2": "github:::Icinga/puppet-icinga2[c3697ba7304c1cbf903515abbee969ece645f83a]"
+                }
+              },
+              "qa": {
+                "use": "production"
+              },
+              "default": {
+                "modules": {
+                  "icinga2": "github:::Icinga/puppet-icinga2"
                 }
               }
             }

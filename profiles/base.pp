@@ -26,6 +26,8 @@ class coralnexus::core::profile::base {
   class { 'xinetd': require => Anchor[$base_name] }
   class { 'haproxy': require => Anchor[$base_name] }
 
+  class { 'icinga2::nrpe': require => Anchor[$base_name] }
+
   #-----------------------------------------------------------------------------
   # Optional systems
 
@@ -39,4 +41,9 @@ class coralnexus::core::profile::base {
   if $::vagrant_exists {
     users::conf { $vagrant_user: }
   }
+
+  #-----------------------------------------------------------------------------
+  # Resources
+
+  corl_resources('icinga2::checkplugin', 'icinga2::checkplugin', 'icinga2::checkplugin_defaults')
 }
