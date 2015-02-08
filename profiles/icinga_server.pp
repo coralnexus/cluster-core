@@ -19,8 +19,6 @@ class coralnexus::core::profile::icinga_server {
     require        => Percona::Database['icinga_database']
   }
 
-  icinga2::object::idomysqlconnection { 'mysql_connection': require => Class['icinga2::server'] }
-
   #-----------------------------------------------------------------------------
   # Resources
 
