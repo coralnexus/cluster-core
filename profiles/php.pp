@@ -11,24 +11,12 @@ class coralnexus::core::profile::php {
 
   class { '::php': require => Anchor[$base_name] }
 
-  if defined(Class['apache']) {
-    include php::apache
-
-    a2mod { 'php5':
-      require => Class['php::apache'],
-    }
-  }
-
-  include php::mod::mysql
+  class { 'php::mod::mysql': require => Class['::php'] }
 
   #-----------------------------------------------------------------------------
   # Optional systems
 
-  if defined(Class['apache']) {
-    corl::include { 'php_classes': require => A2mod['php5'] }
-  } else {
-    corl::include { 'php_classes': require => Class['::php'] }
-  }
+  corl::include { 'php_classes': require => Class['::php'] }
 
   #-----------------------------------------------------------------------------
   # Resources
