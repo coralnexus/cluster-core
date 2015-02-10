@@ -50,10 +50,12 @@ class coralnexus::core::profile::icinga_server {
     type      => 'icinga2::object::idomysqlconnection',
     resources => {
       icinga_db_connection => {
-        host       => 'localhost',
-        database   => $database,
-        user       => $database_user,
-        categories => [
+        target_dir       => '/etc/icinga2/features-available',
+        target_file_name => 'ido-mysql.conf',
+        host             => 'localhost',
+        database         => $database,
+        user             => $database_user,
+        categories       => [
           'DbCatConfig',
           'DbCatState',
           'DbCatAcknowledgement',
