@@ -19,7 +19,7 @@
                   "locales": "github:::coralnexus/puppet-locales[ce99842d101197b1e2c7d2262bb914ffa8892aaf]",
                   "ntp": "github:::coralnexus/puppet-ntp[eadfbe4c86e3ed163575e86388c2c682f7c64873]",
                   "haproxy": "github:::coralnexus/puppet-haproxy[851ff40cc3ec510b8232dbd2bd54ff5079bc1321]",
-                  "nullmailer": "github:::coralnexus/puppet-nullmailer[c58bf214ae6ffb95a4a157614035785be5005d6c]",
+                  "nullmailer": "github:::coralnexus/puppet-nullmailer[81bda6a8a776812311ffa468d9bacf422923fde5]",
                   "xinetd": "github:::coralnexus/puppet-xinetd[bec77d6b00f1e57deeaee9149713480c85b8a039]",
                   "icinga2": "github:::Icinga/puppet-icinga2[c3697ba7304c1cbf903515abbee969ece645f83a]"
                 }
