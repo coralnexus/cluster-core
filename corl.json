@@ -68,7 +68,7 @@
             "environment": {
               "production": {
                 "modules": {
-                  "percona": "github:::coralnexus/puppet-percona[39af801c684c388f56ff2519d34c0bc6cbbdc92f]"
+                  "percona": "github:::coralnexus/puppet-percona[0f1071cdf4091f341cc4bf63051b0eb913cb86bc]"
                 }
               },
               "qa": {
