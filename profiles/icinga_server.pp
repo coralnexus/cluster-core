@@ -23,7 +23,7 @@ class coralnexus::core::profile::icinga_server {
     db_host        => 'localhost',
     db_name        => $database,
     db_user        => $database_user,
-    require        => Percona::Database['icinga']
+    require        => Corl::Definitions['icinga_server::database']
   }
 
   #-----------------------------------------------------------------------------
