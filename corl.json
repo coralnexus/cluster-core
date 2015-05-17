@@ -51,7 +51,7 @@
             "environment": {
               "production": {
                 "modules": {
-                  "php": "github:::coralnexus/puppet-php[8dfcf8a18d3781b1e69c60908fb28d5d742db6d0]"
+                  "php": "github:::coralnexus/puppet-php[3e6a7565dafd903110299acb15480aa97a525dca]"
                 }
               },
               "qa": {
