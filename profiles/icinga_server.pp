@@ -22,8 +22,7 @@ class coralnexus::core::profile::icinga_server {
     server_db_type => 'mysql',
     db_host        => 'localhost',
     db_name        => $database,
-    db_user        => $database_user,
-    require        => Corl::Definitions['icinga_server::database']
+    db_user        => $database_user
   }
 
   #-----------------------------------------------------------------------------
@@ -39,8 +38,11 @@ class coralnexus::core::profile::icinga_server {
         permissions  => 'ALL',
         grant        => false,
         allow_remote => false,
-        require      => Anchor[$base_name]
+        notify       => Class['icinga2::server::install::execs']
       }
+    },
+    defaults => {
+      require => [ Anchor[$base_name], Class['coralnexus::core::profile::percona_server'] ]
     }
   }
 
