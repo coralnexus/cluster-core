@@ -20,8 +20,7 @@
                   "ntp": "github:::coralnexus/puppet-ntp[eadfbe4c86e3ed163575e86388c2c682f7c64873]",
                   "haproxy": "github:::coralnexus/puppet-haproxy[851ff40cc3ec510b8232dbd2bd54ff5079bc1321]",
                   "nullmailer": "github:::coralnexus/puppet-nullmailer[11fcef424d19f0f7f7d4708108fd665384dca2a1]",
-                  "xinetd": "github:::coralnexus/puppet-xinetd[bec77d6b00f1e57deeaee9149713480c85b8a039]",
-                  "icinga2": "github:::Icinga/puppet-icinga2[c3697ba7304c1cbf903515abbee969ece645f83a]"
+                  "xinetd": "github:::coralnexus/puppet-xinetd[bec77d6b00f1e57deeaee9149713480c85b8a039]"
                 }
               },
               "qa": {
@@ -41,8 +40,7 @@
                   "ntp": "github:::coralnexus/puppet-ntp",
                   "haproxy": "github:::coralnexus/puppet-haproxy",
                   "nullmailer": "github:::coralnexus/puppet-nullmailer",
-                  "xinetd": "github:::coralnexus/puppet-xinetd",
-                  "icinga2": "github:::Icinga/puppet-icinga2"
+                  "xinetd": "github:::coralnexus/puppet-xinetd"
                 }
               }
             }
@@ -81,8 +79,7 @@
               }
             }
           },
-          "icinga_server": {
-            "extend": "percona_server",
+          "icinga_client": {
             "environment": {
               "production": {
                 "modules": {
@@ -95,6 +92,26 @@
               "default": {
                 "modules": {
                   "icinga2": "github:::Icinga/puppet-icinga2"
+                }
+              }
+            }
+          },
+          "icinga_server": {
+            "extend": [ "icinga_client", "percona_server" ]
+          },
+          "zabbix_client": {
+            "environment": {
+              "production": {
+                "modules": {
+                  "zabbix": "github:::kemra102/puppet-zabbix[1619dce1eb9bd8b8772c46910630431c295f00c7]"
+                }
+              },
+              "qa": {
+                "use": "production"
+              },
+              "default": {
+                "modules": {
+                  "zabbix": "github:::kemra102/puppet-zabbix"
                 }
               }
             }
